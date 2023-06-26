@@ -4,14 +4,15 @@ import { MatCardModule }  from '@angular/material/card';
 import { AppComponent } from './app.component';
 import { ItemComponent } from './item/item.component';
 import { CardComponent } from './card/card.component';
-
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ItemComponent,
-    CardComponent
+    CardComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
@@ -20,6 +21,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent,NavbarComponent]
 })
 export class AppModule { }

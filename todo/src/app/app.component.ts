@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Item } from './item';
+import { Link } from './link';
 
 import { Card } from './card';
 
