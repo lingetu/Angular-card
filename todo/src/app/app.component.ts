@@ -26,9 +26,19 @@ export class AppComponent {
       done: true,
     },
     {
+      title: 'TODO App in Angular',
+      description: 'Create a TODO App in Angular',
+      done: true,
+    },
+    {
       title: 'Cards in angular',
       description: 'Create a card component in angular',
       done: false,
+    },
+    {
+      title:'Create a website CV in angular',
+      description:'Create a website CV in angular',
+      done:false,
     },
     {
       title:'Create a website CV in angular',
@@ -45,11 +55,11 @@ export class AppComponent {
     }
     if(this.filter=="done")
     {
-      return this.allCards.filter(cards=>cards.done==true);
+      return this.allCards.filter(item=>item.done==true);
     }
     if(this.filter=="active")
       {
-        return this.allCards.filter(cards=>cards.done==false);
+        return this.allCards.filter(item=>item.done==false);
       }
     return undefined;
   }

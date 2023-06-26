@@ -17,6 +17,7 @@ export class CardComponent {
 
   @Input() card!: Card;
   @Output() remove = new EventEmitter<Card>();
+  
 
   savecard(title: string ,description: string) {
     if (!description || !title) return;

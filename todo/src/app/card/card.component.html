@@ -1,43 +1,49 @@
-<div layout="row">
-<mat-card class="card-card">
+
+
+  
+<mat-card class="card">
     <mat-card-header>
       <mat-card-title>{{card.title}}</mat-card-title>
+      <input
+      [id]="card.done"
+      type="checkbox"
+      (change)="card.done = !card.done"
+      [checked]="card.done" />
+
     </mat-card-header>
     <mat-card-content>
       <p>
         {{card.description}}
       </p>
     </mat-card-content>
-    <mat-card-actions *ngIf="!editable">
-      <button mat-button (click)="editable = !editable">Edit</button>
-      <button mat-button class=" btn-warn" (click)="remove.emit()">Delete</button>
-    </mat-card-actions>
-  </mat-card>
-</div>
+      <div *ngIf="!editable">
 
-  <!-- This section shows only if user clicks Edit button -->
-  <div *ngIf="editable">
+      
+      <button mat-button class="btn-footer"(click)="editable = !editable">Edit</button>
+      <button mat-button class=" btn-warn btn-footer" (click)="remove.emit()">Delete</button>
+    </div> 
 
+      <div *ngIf="editable">
+
+
+        <input
+        class="sm-text-input"
+        placeholder="edit Title"
+        [value]="card.title"
+        #editedcardTitle
+        (keyup.enter)="savecard(editedcardTitle.value,editedcardDescription.value)" />
   
-
-      <input
-      class="sm-text-input"
-      placeholder="edit Title"
-      [value]="card.title"
-      #editedcardTitle
-      (keyup.enter)="savecard(editedcardTitle.value,editedcardDescription.value)" />
-
-      <input
-      class="sm-text-input"
-      placeholder="edit descrition"
-      [value]="card.description"
-      #editedcardDescription
-      (keyup.enter)="savecard(editedcardTitle.value,editedcardDescription.value)" />
-
-    <div class="btn-wrapper">
-      <button class="btn" (click)="editable = !editable">Cancel</button>
-      <button class="btn btn-save" (click)="savecard(editedcardTitle.value,editedcardDescription.value)">
-        Save
-      </button>
-    </div>
-  </div>
+        <input
+        class="sm-text-input"
+        placeholder="edit descrition"
+        [value]="card.description"
+        #editedcardDescription
+        (keyup.enter)="savecard(editedcardTitle.value,editedcardDescription.value)" />
+  
+      <div class="btn-wrapper">
+        <button class="btn" (click)="editable = !editable">Cancel</button>
+        <button class="btn btn-save" (click)="savecard(editedcardTitle.value,editedcardDescription.value)">
+          Save
+        </button>
+      </div>
+  
